@@ -1,5 +1,7 @@
 # Escalated Plugin: Import Help Scout
 
+**Website:** [escalated.dev](https://escalated.dev)
+
 Imports conversations, customers (contacts), users (agents), mailboxes (departments), and tags from Help Scout into Escalated. Authenticates via OAuth 2.0 Client Credentials with automatic token refresh.
 
 ## Features
