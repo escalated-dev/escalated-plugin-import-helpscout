@@ -1,44 +1,66 @@
-# Escalated Plugin: Import Help Scout
+<p align="center">
+  <a href="https://escalated.dev"><img src="https://raw.githubusercontent.com/escalated-dev/escalated/main/docs/assets/readme/logo.png" width="56" height="56" alt="Escalated"></a>
+</p>
 
-[![Views](https://hits.sh/github.com/escalated-dev/escalated-plugin-import-helpscout.svg?style=flat&label=views&color=007ec6)](https://hits.sh/github.com/escalated-dev/escalated-plugin-import-helpscout/)
+<h1 align="center">Help Scout import for Escalated</h1>
 
-**Website:** [escalated.dev](https://escalated.dev)
+<p align="center">Move your Help Scout mailboxes into Escalated, history included.</p>
 
-Imports conversations, customers (contacts), users (agents), mailboxes (departments), and tags from Help Scout into Escalated. Authenticates via OAuth 2.0 Client Credentials with automatic token refresh.
+<p align="center">
+  <a href="https://escalated.dev"><b>Website</b></a> ·
+  <a href="https://escalated.dev/docs"><b>Docs</b></a> ·
+  <a href="https://escalated.dev/cloud"><b>Cloud</b></a> ·
+  <a href="https://github.com/escalated-dev/escalated-plugin-import-helpscout/releases"><b>Releases</b></a>
+</p>
+
+This plugin imports conversations, customers, users, mailboxes and tags from Help Scout into Escalated for Laravel, signing in with an OAuth app you create. It's for teams switching from Help Scout who want to keep every conversation thread.
 
 ## Features
 
-- Imports users (agents), mailboxes (departments), customers (contacts), and tags
-- Imports conversations (tickets) with full status mapping
-- Imports all conversation threads (replies and notes)
-- OAuth 2.0 Client Credentials authentication with automatic token refresh
-- Follows HTTP 301 redirects for moved resources
-- Cursor-based HAL pagination throughout for resumable imports
-- Automatic rate-limit handling with `Retry-After` header support and retry on 429/5xx
-- Maps Help Scout conversation statuses (active, pending, closed, spam) to Escalated equivalents
+<table>
+<tr>
+<td width="33%" valign="top">
 
-## Configuration
+**What it imports**
+- Users, mailboxes, customers and tags
+- Conversations with status mapping
+- Every thread: replies and notes
+- Statuses mapped: active, pending, closed, spam
 
-| Field | Type | Required | Description |
-|-------|------|----------|-------------|
-| `app_id` | text | Yes | OAuth App ID from Help Scout Profile > API Keys > OAuth Applications. |
-| `app_secret` | password | Yes | OAuth App Secret for the same application. |
+</td>
+<td width="33%" valign="top">
 
-## Hooks
+**Connection**
+- OAuth client credentials with token refresh
+- Follows 301 redirects for moved resources
 
-### Filters
-- `import.adapters` — Registers the Help Scout import adapter with the Escalated import system.
+</td>
+<td width="33%" valign="top">
 
-## Entity Import Order
+**Reliability**
+- Resumable imports with HAL cursor pagination
+- Retries on 429 and 5xx, honours Retry-After
 
-`agents` > `tags` > `departments` > `contacts` > `tickets` > `replies` > `attachments`
+</td>
+</tr>
+</table>
 
-## Installation
+<p align="center"><sub><a href="docs/features.md">Every feature in detail</a></sub></p>
 
-```bash
-npm install @escalated-dev/plugin-import-helpscout
-```
+<p align="center">
+  <a href="https://www.php.net"><img src="https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP"></a>
+  <a href="https://laravel.com"><img src="https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel"></a>
+  <a href="https://getcomposer.org"><img src="https://img.shields.io/badge/Composer-885630?style=for-the-badge&logo=composer&logoColor=white" alt="Composer"></a>
+</p>
+
+## Learn more
+
+- [Every feature](docs/features.md)
+- [Configuration, hooks and import order](docs/reference.md)
+- [Plugin SDK](https://github.com/escalated-dev/escalated-plugin-sdk): how Escalated plugins are built
+- [Escalated docs](https://escalated.dev/docs)
+- [Escalated](https://github.com/escalated-dev/escalated), the main repo
 
 ## License
 
-MIT - Copyright (c) Escalated.dev. See [LICENSE](LICENSE).
+MIT. Copyright (c) 2026 Escalated.dev. See [LICENSE](LICENSE).
